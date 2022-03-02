@@ -1,4 +1,6 @@
 ## RUN PROGRAM: python3 scan.py [input_file.txt] [output_file.json]
+## pip installed packages:
+## - requests (https://docs.python-requests.org/en/master/user/install/)
 
 import json
 import string
@@ -6,12 +8,13 @@ import time
 import json
 import sys
 import subprocess
+import requests
 
 webpages = {} # dictionary that holds webpages and the corresponding dictionary for that site
-dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
-"8.26.56.26", "9.9.9.9", "64.6.65.6", "91.239.100.100", "185.228.168.168", 
-"77.88.8.7", "156.154.70.1", "198.101.242.72", "176.103.130.130"]
-#dns_resolvers = ["8.8.8.8"]
+#dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
+#"8.26.56.26", "9.9.9.9", "64.6.65.6", "91.239.100.100", "185.228.168.168", 
+#"77.88.8.7", "156.154.70.1", "198.101.242.72", "176.103.130.130"]
+dns_resolvers = ["8.8.8.8"]
 
 # reads input file
 def fill_to_scan(user_in):
@@ -43,6 +46,10 @@ def scan_sites():
         else:
             webpages[page]['ipv4_addresses'] = ip4
             webpages[page]['ipv6_addresses'] = ip6
+
+        #HTTP server
+        server = get_httpserver(page)
+        webpages[page]["http_server"] = server
 
 def run_cmd(cmd):
     result = ""
@@ -96,7 +103,18 @@ def get_ip(page):
     ip4set = set(ip4)
     ip6set = set(ip6)
     return list(ip4set), list(ip6set)
-    
+
+def get_httpserver(page):
+    page = "http://" + page
+    try:
+        r = requests.get(page, timeout=2)
+        if 'server' in r.headers:
+            return r.headers['server']
+        else:
+            return None
+    except:
+        print("Requests encountered an issue", file=sys.stderr)
+        return None
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
