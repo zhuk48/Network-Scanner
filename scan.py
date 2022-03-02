@@ -8,12 +8,14 @@ import time
 import json
 import sys
 import subprocess
+from urllib.error import HTTPError
 import requests
 
 webpages = {} # dictionary that holds webpages and the corresponding dictionary for that site
 #dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
 #"8.26.56.26", "9.9.9.9", "64.6.65.6", "91.239.100.100", "185.228.168.168", 
 #"77.88.8.7", "156.154.70.1", "198.101.242.72", "176.103.130.130"]
+# TESTING PURPOSED ONLY:
 dns_resolvers = ["8.8.8.8"]
 
 # reads input file
@@ -50,6 +52,18 @@ def scan_sites():
         #HTTP server
         server = get_httpserver(page)
         webpages[page]["http_server"] = server
+
+        #Allows HTTP requests?
+        allows_http = get_insecure_http(page)
+        webpages[page]["insecure_http"] = allows_http
+
+        #Redirects  HTTP to HTTPS?
+        redirects_https = get_redirect_https(page)
+        webpages[page]["redirect_to_https"] = redirects_https
+
+        #HSTS
+        has_hsts = get_hsts(page)
+        webpages[page]["hsts"] = has_hsts
 
 def run_cmd(cmd):
     result = ""
@@ -105,16 +119,68 @@ def get_ip(page):
     return list(ip4set), list(ip6set)
 
 def get_httpserver(page):
-    page = "http://" + page
+    page_https = "https://" + page
+    page_http = "http://" + page
+    
     try:
-        r = requests.get(page, timeout=2)
+        r = requests.get(page_http, timeout=2, allow_redirects=False)
+    except:
+        try:
+            r1 = requests.get(page_https, timeout=2, allow_redirects=False)
+        except:
+            print("responses library could not reach webpage " + page, file=sys.stderr)
+            return None
+        else:
+            if 'server' in r1.headers:
+                return r1.headers['server']
+            else:
+                return None
+    else:
         if 'server' in r.headers:
             return r.headers['server']
         else:
             return None
+
+def get_insecure_http(page):
+    page = "http://" + page
+    try:
+        r = requests.get(page, timeout=2, allow_redirects=False)
+    except requests.exceptions.HTTPError:
+        return False
+    else:
+        return True
+        
+def get_redirect_https(page):
+    page = "http://" + page
+    try:
+        r = requests.get(page, timeout=2, allow_redirects=False)
     except:
-        print("Requests encountered an issue", file=sys.stderr)
-        return None
+        print("responses library could not reach webpage " + page, file=sys.stderr)
+        return False
+    else:
+        if int(r.status_code >= 300):
+            redirect_to = r.headers['location']
+            if "https" in redirect_to:
+                return True
+        else:
+            return False
+    
+def get_hsts(page):
+    page = "https://" + page
+    try:
+        r = requests.get(page, timeout=2, allow_redirects=True)
+    except requests.exceptions.Timeout:
+        print(page + " timed out", file=sys.stderr)
+        return False
+    except:
+        print("responses library could not reach webpage " + page, file=sys.stderr)
+        return False
+    else:
+        if "Strict-Transport-Security" in r.headers:
+            return True
+        else:
+            return False
+
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
