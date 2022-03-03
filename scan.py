@@ -65,6 +65,13 @@ def scan_sites():
         has_hsts = get_hsts(page)
         webpages[page]["hsts"] = has_hsts
 
+        #TLS
+        get_tls(page)
+
+        #Root CA
+
+        #RDNS
+
 def run_cmd(cmd):
     result = ""
     try:
@@ -180,6 +187,14 @@ def get_hsts(page):
             return True
         else:
             return False
+
+def get_tls(page):
+    new_page = page + ":443"
+    cmd = ["openssl", "s_client", "-connect", new_page]
+    # tls 1.0
+    cmd.append("-tls1")
+    res_tls1 = run_cmd(cmd)
+    print(res_tls1)
 
 
 user_in = sys.argv[1]
