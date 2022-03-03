@@ -1,19 +1,25 @@
 {
-    "stevetarzia.com": {
+    "google.com": {
         "hsts": false,
-        "http_server": "Apache/2.2.34 (Amazon)",
+        "http_server": "gws",
         "insecure_http": true,
         "ipv4_addresses": [
-            "54.245.121.172"
+            "142.250.191.206"
         ],
-        "ipv6_addresses": [],
-        "redirect_to_https": true,
-        "root_ca": "Digital Signature Trust Co.",
-        "scan_time": 1646335220.3071544,
+        "ipv6_addresses": [
+            "2607:f8b0:4009:81a::200e"
+        ],
+        "rdns_names": [
+            "ord38s31-in-f14.1e100.net."
+        ],
+        "redirect_to_https": null,
+        "root_ca": "GlobalSign nv-sa",
+        "scan_time": 1646338034.331621,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3"
         ]
     }
 }

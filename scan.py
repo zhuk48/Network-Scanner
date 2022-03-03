@@ -1,6 +1,7 @@
 ## RUN PROGRAM: python3 scan.py [input_file.txt] [output_file.json]
 ## pip installed packages:
 ## - requests (https://docs.python-requests.org/en/master/user/install/)
+## - dnspython (https://dnspython.readthedocs.io/en/stable/)
 
 # ask at OH:
 # 1. bad website causes crash when running nslookup
@@ -12,9 +13,9 @@ import time
 import json
 import sys
 import subprocess
-from tkinter.messagebox import NO
 from urllib.error import HTTPError
 import requests
+from dns import resolver, reversename
 
 webpages = {} # dictionary that holds webpages and the corresponding dictionary for that site
 #dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
@@ -49,33 +50,31 @@ def scan_sites():
         #IP addresses
         ip4, ip6 = get_ip(page)
         if ip4 == None or ip6 == None:
-            pass
+            continue
         else:
             webpages[page]['ipv4_addresses'] = ip4
             webpages[page]['ipv6_addresses'] = ip6
 
         #HTTP server
-        server = get_httpserver(page)
-        webpages[page]["http_server"] = server
+        webpages[page]["http_server"] = get_httpserver(page)
 
         #Allows HTTP requests?
-        allows_http = get_insecure_http(page)
-        webpages[page]["insecure_http"] = allows_http
+        webpages[page]["insecure_http"] = get_insecure_http(page)
 
         #Redirects  HTTP to HTTPS?
-        redirects_https = get_redirect_https(page)
-        webpages[page]["redirect_to_https"] = redirects_https
+        webpages[page]["redirect_to_https"] = get_redirect_https(page)
 
         #HSTS
-        has_hsts = get_hsts(page)
-        webpages[page]["hsts"] = has_hsts
+        webpages[page]["hsts"] = get_hsts(page)
 
         #TLS
         webpages[page]["tls_versions"] = get_tls(page)
 
         #Root CA
         webpages[page]["root_ca"] = get_root_ca(page)
+
         #RDNS
+        webpages[page]["rdns_names"] = get_rdns(ip4)
 
 def run_cmd(cmd):
     result = ""
@@ -232,6 +231,15 @@ def get_root_ca(page):
         return f
     else:
         return None
+
+def get_rdns(ip4):
+    rdns = []
+    for ip in ip4:
+        addr = reversename.from_address(ip)
+        ans = resolver.query(addr,"PTR")
+        for rr in ans:
+            rdns.append(str(rr))
+    return rdns
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
