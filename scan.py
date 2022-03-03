@@ -2,6 +2,10 @@
 ## pip installed packages:
 ## - requests (https://docs.python-requests.org/en/master/user/install/)
 
+# ask at OH:
+# 1. bad website causes crash when running nslookup
+# 2. how to check for SSL? openssl doesn't support anymore
+
 import json
 import string
 import time
@@ -66,7 +70,7 @@ def scan_sites():
         webpages[page]["hsts"] = has_hsts
 
         #TLS
-        get_tls(page)
+        webpages[page]["tls_versions"] = get_tls(page)
 
         #Root CA
 
@@ -75,7 +79,7 @@ def scan_sites():
 def run_cmd(cmd):
     result = ""
     try:
-        result = subprocess.check_output(cmd, timeout=2, stderr=subprocess.STDOUT).decode("utf-8")
+        result = subprocess.check_output(cmd, timeout=2, stderr=subprocess.STDOUT, input=b'').decode("utf-8")
     except subprocess.TimeoutExpired:
         error_msg = "Command " + cmd[0] + " timed out"
         print(error_msg, file=sys.stderr)
@@ -190,11 +194,22 @@ def get_hsts(page):
 
 def get_tls(page):
     new_page = page + ":443"
-    cmd = ["openssl", "s_client", "-connect", new_page]
+    cmd = ["openssl", "s_client", "TLS", "-connect", new_page]
+    tls = []
     # tls 1.0
-    cmd.append("-tls1")
-    res_tls1 = run_cmd(cmd)
-    print(res_tls1)
+    cmd[2] = "-tls1"
+    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.0")
+    # tls 1.1
+    cmd[2] = "-tls1_1"
+    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.1")
+    # tls 1.2
+    cmd[2] = "-tls1_2"
+    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.2")
+    # tls 1.3
+    cmd[2] = "-tls1_3"
+    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.3")
+    return tls
+
 
 
 user_in = sys.argv[1]
