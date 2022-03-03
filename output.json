@@ -1,15 +1,18 @@
 {
-    "grubhub.com": {
-        "hsts": true,
-        "http_server": "Varnish",
+    "stevetarzia.com": {
+        "hsts": false,
+        "http_server": "Apache/2.2.34 (Amazon)",
         "insecure_http": true,
         "ipv4_addresses": [
-            "151.101.1.160"
+            "54.245.121.172"
         ],
         "ipv6_addresses": [],
         "redirect_to_https": true,
-        "scan_time": 1646331174.6434777,
+        "root_ca": "Digital Signature Trust Co.",
+        "scan_time": 1646335220.3071544,
         "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
             "TLSv1.2"
         ]
     }

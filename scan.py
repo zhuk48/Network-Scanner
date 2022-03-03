@@ -12,6 +12,7 @@ import time
 import json
 import sys
 import subprocess
+from tkinter.messagebox import NO
 from urllib.error import HTTPError
 import requests
 
@@ -73,7 +74,7 @@ def scan_sites():
         webpages[page]["tls_versions"] = get_tls(page)
 
         #Root CA
-
+        webpages[page]["root_ca"] = get_root_ca(page)
         #RDNS
 
 def run_cmd(cmd):
@@ -104,7 +105,6 @@ def get_ip(page):
     for dns in dns_resolvers:
         cmd[1] = page
         cmd[2] = dns
-        print(cmd)
         res = run_cmd(cmd)
         if res == "": # dns timeout or other error, skip and go to next dns
             continue
@@ -210,7 +210,28 @@ def get_tls(page):
     if len(run_cmd(cmd)) != 0: tls.append("TLSv1.3")
     return tls
 
-
+def get_root_ca(page):
+    new_page = page + ":443"
+    cmd = ["openssl", "s_client", "-connect", new_page]
+    res = run_cmd(cmd)
+    
+    if len(res) > 0:
+        #print(res)
+        a = res.split("---\nServer certificate")
+        #print(a[0])
+        b = a[0].split("---\nCertificate chain")
+        #print(b)
+        c = b[1].split("\n")
+        #print(c)
+        d = c[-2].split("O = ")
+        #print(d)
+        e = d[1].split(",")
+        #print(e)
+        f = e[0].strip()
+        #print(f)
+        return f
+    else:
+        return None
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
