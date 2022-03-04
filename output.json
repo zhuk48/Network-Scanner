@@ -1,24 +1,28 @@
 {
     "google.com": {
+        "geo_locations": [
+            "Reno County, Kansas, United States"
+        ],
         "hsts": false,
         "http_server": "gws",
         "insecure_http": true,
         "ipv4_addresses": [
-            "142.250.190.14"
+            "172.217.5.14"
         ],
         "ipv6_addresses": [
             "2607:f8b0:4009:808::200e"
         ],
         "rdns_names": [
-            "ord37s32-in-f14.1e100.net."
+            "ord38s19-in-f14.1e100.net.",
+            "lga15s49-in-f14.1e100.net."
         ],
         "redirect_to_https": null,
         "root_ca": "GlobalSign nv-sa",
         "rtt_range": [
-            1.2552100233733654,
-            1.4260439202189445
+            1.3307780027389526,
+            1.3479678891599178
         ],
-        "scan_time": 1646415450.7737162,
+        "scan_time": 1646418603.0620787,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",

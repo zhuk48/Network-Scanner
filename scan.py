@@ -2,15 +2,13 @@
 ## pip installed packages:
 ## - requests (https://docs.python-requests.org/en/master/user/install/)
 ## - dnspython (https://dnspython.readthedocs.io/en/stable/)
+## - maxminddb
+## - geopy ()
 
 # ask at OH:
 # 1. bad website causes crash when running nslookup
 # 2. how to check for SSL? openssl doesn't support anymore
-# 3. sh -c does not time out when trying to access incorrect port
 
-from asyncio.subprocess import PIPE
-from cProfile import run
-from distutils.log import error
 import json
 import string
 import time
@@ -20,9 +18,10 @@ import os
 import signal
 import socket
 import subprocess
-from urllib.error import HTTPError
 import requests
 from dns import resolver, reversename
+import maxminddb
+from geopy.geocoders import Nominatim
 
 webpages = {} # dictionary that holds webpages and the corresponding dictionary for that site
 #dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
@@ -85,6 +84,9 @@ def scan_sites():
 
         #RTT
         webpages[page]["rtt_range"] = get_rtt(ip4)
+
+        #Geo locations
+        webpages[page]["geo_locations"] = get_geo_loc(ip4)
 
 def run_cmd(cmd):
     result = ""
@@ -286,6 +288,24 @@ def get_rtt(ip4):
     minrtt *= 1000
     out = [minrtt,maxrtt]
     return out
+
+def get_geo_loc(ip4):
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    locs = []
+    names = []
+    with maxminddb.open_database('GeoLite2-City.mmdb') as r:
+        for ip in ip4:
+            m = r.get(ip)
+            locs.append([m["location"]["latitude"], m["location"]["longitude"]])
+    # get city, state, country using geopy lib
+    for loc in locs:
+        pos = str(loc[0]) + "," + str(loc[1])
+        pos_name = geolocator.reverse(pos)
+        names.append(str(pos_name))
+
+    # removing duplicate names
+    name_set = set(names)
+    return list(name_set)
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
