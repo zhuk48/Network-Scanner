@@ -3,10 +3,6 @@ from texttable import Texttable
 import json 
 import sys
 
-f = open('output.json')
-data = json.load(f)
-f.close()
-
 def part1():
   table = Texttable(max_width=0)
   table.set_deco(Texttable.HEADER)
@@ -24,4 +20,10 @@ def part1():
   rows.insert(0, columns)
   table.add_rows(rows)
   print(table.draw())
-part1()
+
+user_in = sys.argv[1]
+user_out = sys.argv[2]
+f = open(user_in)
+data = json.load(f)
+f.close()
+part1() #need to somehow turn the table printed into a txt file
