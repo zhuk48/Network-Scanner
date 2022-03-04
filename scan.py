@@ -263,11 +263,17 @@ def get_root_ca(page):
 def get_rdns(ip4):
     rdns = []
     for ip in ip4:
-        addr = reversename.from_address(ip)
-        ans = resolver.query(addr,"PTR")
-        for rr in ans:
-            rdns.append(str(rr))
-    return rdns
+        try:
+            addr = reversename.from_address(ip)
+            ans = resolver.query(addr,"PTR")
+            for rr in ans:
+                rdns.append(str(rr))
+        except:
+            continue
+    if len(rdns) > 0:
+        return rdns
+    else:
+        return None
 
 def get_rtt(ip4):
     rtt = []
@@ -277,7 +283,7 @@ def get_rtt(ip4):
             before = time.perf_counter()
             try:
                 s = socket.create_connection((host, port), timeout=2)
-            except socket.timeout:
+            except:
                 continue
             else:
                 after = time.perf_counter()
@@ -305,7 +311,10 @@ def get_geo_loc(ip4):
 
     # removing duplicate names
     name_set = set(names)
-    return list(name_set)
+    if len(list(name_set)) > 0:
+        return list(name_set)
+    else:
+        return None
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
