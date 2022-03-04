@@ -6,12 +6,19 @@
 # ask at OH:
 # 1. bad website causes crash when running nslookup
 # 2. how to check for SSL? openssl doesn't support anymore
+# 3. sh -c does not time out when trying to access incorrect port
 
+from asyncio.subprocess import PIPE
+from cProfile import run
+from distutils.log import error
 import json
 import string
 import time
 import json
 import sys
+import os
+import signal
+import socket
 import subprocess
 from urllib.error import HTTPError
 import requests
@@ -76,6 +83,9 @@ def scan_sites():
         #RDNS
         webpages[page]["rdns_names"] = get_rdns(ip4)
 
+        #RTT
+        webpages[page]["rtt_range"] = get_rtt(ip4)
+
 def run_cmd(cmd):
     result = ""
     try:
@@ -92,6 +102,22 @@ def run_cmd(cmd):
         print(error_msg, file=sys.stderr)
         result = ""
     return result
+
+# This modified subprocess function is required because subprocess by default will not kill any children
+# function called, even after the time out. The function to get RTT calls a child function and hangs if telnet hangs.
+# Taken from https://alexandra-zaharia.github.io/posts/kill-subprocess-and-its-children-on-timeout-python/
+def run_cmd1(cmd):
+    try:
+        p = subprocess.Popen(cmd, start_new_session=True, stdout=subprocess.PIPE)
+        p.wait(timeout=2)
+        out = p.communicate()
+    except subprocess.TimeoutExpired:
+        os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+        errormsg = "Command " + cmd[0] + " timed out!"
+        print(errormsg, file=sys.stderr)
+        return None
+    else:
+        return out
 
 ## functions to fill respective information
 def get_time():
@@ -240,6 +266,26 @@ def get_rdns(ip4):
         for rr in ans:
             rdns.append(str(rr))
     return rdns
+
+def get_rtt(ip4):
+    rtt = []
+    for ip in ip4:
+        for port in [80, 443, 22]:
+            host = socket.gethostbyname(ip)
+            before = time.perf_counter()
+            try:
+                s = socket.create_connection((host, port), timeout=2)
+            except socket.timeout:
+                continue
+            else:
+                after = time.perf_counter()
+                rtt.append(after-before)
+    maxrtt = max(rtt)
+    minrtt = min(rtt)
+    maxrtt *= 1000
+    minrtt *= 1000
+    out = [minrtt,maxrtt]
+    return out
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
