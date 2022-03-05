@@ -173,3 +173,25 @@ Baltimore                     2
 Unspecified                   1         
 GlobalSign nv-sa              1         
 
+                        Web Server                           Occurences
+=======================================================================
+None                                                         4         
+Varnish                                                      3         
+Apache                                                       3         
+Server                                                       2         
+cloudflare                                                   2         
+Apache/2.4.41 (Ubuntu)                                       1         
+nginx                                                        1         
+Apache/2.2.15 (Red Hat) mod_ssl/2.2.15 OpenSSL/1.0.1e-fips   1         
+proxygen-bolt                                                1         
+Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k      1         
+Microsoft-IIS/10.0                                           1         
+Apache/2.4.7 (Ubuntu)                                        1         
+BigIP                                                        1         
+snooserv                                                     1         
+Apache/2.4.51 () OpenSSL/1.0.2k-fips                         1         
+Apache/2.2.34 (Amazon)                                       1         
+envoy                                                        1         
+tsa_b                                                        1         
+ESF                                                          1         
+

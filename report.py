@@ -57,10 +57,10 @@ def get_RTT():
   pretty_table = table.draw()
   return pretty_table
 
-def get_root_certificate():
+def get_information_sorted(item, col):
   cas = {}
   for webpage in data:
-    certificate = data[webpage]['root_ca']
+    certificate = data[webpage][item]
     if certificate not in cas:
       cas[certificate] = 1
     else:
@@ -68,24 +68,26 @@ def get_root_certificate():
   cas = {k: v for k, v in sorted(cas.items(), key=lambda item:item[1], reverse=True)}
   table = Texttable(max_width=0)
   table.set_deco(Texttable.HEADER)
-  columns = ['Certificate Authority', 'Occurences']
+  columns = col
   rows = [[key, value] for key, value in cas.items()]
   rows.insert(0, columns)
   table.add_rows(rows)
   pretty_table = table.draw()
+  
   return pretty_table
-
 
 user_in = sys.argv[1]
 user_out = sys.argv[2]
-f = open(user_in)
-data = json.load(f)
-f.close()
-p1 = get_all_information() #need to somehow turn the table printed into a txt file
+with open(user_in, 'r') as f:
+  data = json.load(f)
+
+p1 = get_all_information() 
 p2 = get_RTT()
-p3 = get_root_certificate()
+p3 = get_information_sorted('root_ca',['Certificate Authority', 'Occurences'])
+p4 = get_information_sorted('http_server', ['Web Server', 'Occurences'])
 
 with open('output.txt', 'w', encoding="utf-8") as f:
   f.write(p1 + '\n\n')
   f.write(p2 + '\n\n')
   f.write(p3 + '\n\n')
+  f.write(p4 + '\n\n')
