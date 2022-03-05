@@ -1,10 +1,11 @@
 import csv
+from argon2 import PasswordHasher
 import texttable
 from texttable import Texttable
 import json 
 import sys
 
-def part1():
+def get_all_information():
   table = Texttable(max_width=0)
   table.set_deco(Texttable.HEADER)
   long_columns = ['ipv4_addresses', 'ipv6_addresses', 'rdns_names','rtt_range', 'tls_versions']
@@ -35,13 +36,35 @@ def part1():
   rows.insert(0, columns)
   table.add_rows(rows)
   pretty_table = table.draw()
-  with open('output.txt', 'w', encoding="utf-8") as f:
-    f.write(pretty_table)
-  # print(pretty_table)
+  # with open('output.txt', 'w', encoding="utf-8") as f:
+  #   f.write(pretty_table)
+  return pretty_table
 
+
+def get_RTT():
+  table = Texttable(max_width=0)
+  table.set_deco(Texttable.HEADER)
+  sorted_RTT = {k: v for k, v in sorted(data.items(), key=lambda item:item[1]['rtt_range'][0])}
+  columns = ['webpage', 'RTT_Range']
+  rows = []
+  for webpage in sorted_RTT:
+    row = [webpage]
+    RTT_ranges = [round(num, 3) for num in sorted_RTT[webpage]['rtt_range']]
+    row.append(RTT_ranges)
+    rows.append(row)
+  rows.insert(0, columns)
+  table.add_rows(rows)
+  pretty_table = table.draw()
+  return pretty_table
+  
 user_in = sys.argv[1]
 user_out = sys.argv[2]
 f = open(user_in)
 data = json.load(f)
 f.close()
-part1() #need to somehow turn the table printed into a txt file
+p1 = get_all_information() #need to somehow turn the table printed into a txt file
+p2 = get_RTT()
+
+with open('output.txt', 'w', encoding="utf-8") as f:
+  f.write(p1 + '\n\n')
+  f.write(p2 + '\n\n')
