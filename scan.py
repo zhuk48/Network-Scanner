@@ -24,11 +24,11 @@ import maxminddb
 from geopy.geocoders import Nominatim
 
 webpages = {} # dictionary that holds webpages and the corresponding dictionary for that site
-#dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
-#"8.26.56.26", "9.9.9.9", "64.6.65.6", "91.239.100.100", "185.228.168.168", 
-#"77.88.8.7", "156.154.70.1", "198.101.242.72", "176.103.130.130"]
+dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
+"8.26.56.26", "9.9.9.9", "64.6.65.6", "91.239.100.100", "185.228.168.168", 
+"77.88.8.7", "156.154.70.1", "198.101.242.72", "176.103.130.130"]
 # TESTING PURPOSED ONLY:
-dns_resolvers = ["8.8.8.8"]
+#dns_resolvers = ["8.8.8.8"]
 
 # reads input file
 def fill_to_scan(user_in):
@@ -48,6 +48,7 @@ def fill_json_out(file_name):
         json.dump(webpages, f, sort_keys=True, indent=4)
 
 def scan_sites():
+    bad_webpages = [] # any unreachable webpages that need to be deleted
     for page in webpages:
         # scan time
         curr_time = get_time()
@@ -56,6 +57,7 @@ def scan_sites():
         #IP addresses
         ip4, ip6 = get_ip(page)
         if ip4 == None or ip6 == None:
+            bad_webpages.append(page)
             continue
         else:
             webpages[page]['ipv4_addresses'] = ip4
@@ -88,6 +90,9 @@ def scan_sites():
         #Geo locations
         webpages[page]["geo_locations"] = get_geo_loc(ip4)
 
+    for i in bad_webpages:
+        del webpages[i]
+
 def run_cmd(cmd):
     result = ""
     try:
@@ -102,7 +107,8 @@ def run_cmd(cmd):
     except:
         error_msg = "Unexpected error when running command " + cmd[0]
         print(error_msg, file=sys.stderr)
-        result = ""
+        result = None
+    print("after exception")
     return result
 
 # This modified subprocess function is required because subprocess by default will not kill any children
