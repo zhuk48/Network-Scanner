@@ -159,3 +159,17 @@ en.wikipedia.org             [24.799, 25.034]
 pmichaud.com                 [28.756, 29.381]  
 stevetarzia.com              [56.765, 57.193]  
 auditoryneuroscience.com     [201.377, 201.565]
+
+   Certificate Authority      Occurences
+========================================
+DigiCert Inc                  7         
+Digital Signature Trust Co.   4         
+GlobalSign                    4         
+Comodo CA Limited             4         
+The USERTRUST Network         3         
+Baltimore                     2         
+"VeriSign                     1         
+"Starfield Technologies       1         
+Unspecified                   1         
+GlobalSign nv-sa              1         
+
