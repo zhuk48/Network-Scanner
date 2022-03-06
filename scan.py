@@ -3,11 +3,6 @@
 ## - requests (https://docs.python-requests.org/en/master/user/install/)
 ## - dnspython (https://dnspython.readthedocs.io/en/stable/)
 ## - maxminddb
-## - geopy ()
-
-# ask at OH:
-# 1. bad website causes crash when running nslookup
-# 2. how to check for SSL? openssl doesn't support anymore
 
 import json
 import string
@@ -21,7 +16,6 @@ import subprocess
 import requests
 from dns import resolver, reversename
 import maxminddb
-from geopy.geocoders import Nominatim
 
 webpages = {} # dictionary that holds webpages and the corresponding dictionary for that site
 dns_resolvers = ["208.67.222.222", "1.1.1.1", "8.8.8.8", 
@@ -108,7 +102,6 @@ def run_cmd(cmd):
         error_msg = "Unexpected error when running command " + cmd[0]
         print(error_msg, file=sys.stderr)
         result = None
-    print("after exception")
     return result
 
 # This modified subprocess function is required because subprocess by default will not kill any children
@@ -231,16 +224,16 @@ def get_tls(page):
     tls = []
     # tls 1.0
     cmd[2] = "-tls1"
-    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.0")
+    if not run_cmd(cmd) or len(run_cmd(cmd)) != 0: tls.append("TLSv1.0")
     # tls 1.1
     cmd[2] = "-tls1_1"
-    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.1")
+    if not run_cmd(cmd) or len(run_cmd(cmd)) != 0: tls.append("TLSv1.1")
     # tls 1.2
     cmd[2] = "-tls1_2"
-    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.2")
+    if not run_cmd(cmd) or len(run_cmd(cmd)) != 0: tls.append("TLSv1.2")
     # tls 1.3
     cmd[2] = "-tls1_3"
-    if len(run_cmd(cmd)) != 0: tls.append("TLSv1.3")
+    if not run_cmd(cmd) or len(run_cmd(cmd)) != 0: tls.append("TLSv1.3")
     return tls
 
 def get_root_ca(page):
@@ -302,23 +295,17 @@ def get_rtt(ip4):
     return out
 
 def get_geo_loc(ip4):
-    geolocator = Nominatim(user_agent="geoapiExercises")
     locs = []
-    names = []
     with maxminddb.open_database('GeoLite2-City.mmdb') as r:
         for ip in ip4:
             m = r.get(ip)
-            locs.append([m["location"]["latitude"], m["location"]["longitude"]])
-    # get city, state, country using geopy lib
-    for loc in locs:
-        pos = str(loc[0]) + "," + str(loc[1])
-        pos_name = geolocator.reverse(pos)
-        names.append(str(pos_name))
+            print(m)
+            #locs.append(string(m["location"]))
 
     # removing duplicate names
-    name_set = set(names)
-    if len(list(name_set)) > 0:
-        return list(name_set)
+    loc_set = set(locs)
+    if len(list(loc_set)) > 0:
+        return list(loc_set)
     else:
         return None
 

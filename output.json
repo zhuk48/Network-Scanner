@@ -1,1 +1,29 @@
-{}
+{
+    "northwestern.edu": {
+        "geo_locations": null,
+        "hsts": false,
+        "http_server": "BigIP",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "129.105.136.48"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": [
+            "evcommon-caesar-vip.northwestern.edu.",
+            "cnair.northwestern.edu."
+        ],
+        "redirect_to_https": true,
+        "root_ca": "The USERTRUST Network",
+        "rtt_range": [
+            0.9530060924589634,
+            1.0313848033547401
+        ],
+        "scan_time": 1646602166.6217632,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    }
+}
