@@ -195,3 +195,15 @@ envoy                                                        1
 tsa_b                                                        1         
 ESF                                                          1         
 
+ characteristic     percentage
+==============================
+SSLv2               0         
+SSLv3               0         
+TLSv1.0             0.500     
+TLSv1.1             0.571     
+TLSv1.2             1         
+TLSv1.3             0.607     
+http_server         0.857     
+redirect_to_https   0.857     
+hsts                0.393     
+ipv6_addresses      0.214     
