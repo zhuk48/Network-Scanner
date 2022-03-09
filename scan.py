@@ -300,7 +300,17 @@ def get_geo_loc(ip4):
         for ip in ip4:
             m = r.get(ip)
             print(m)
-            #locs.append(string(m["location"]))
+            print(type(m))
+            loc = ""
+            if 'city' in m.keys():
+                city = m['city']['names']['en']
+                loc = loc + city + ", "
+            if 'subdivisions' in m.keys():
+                subdiv = m['subdivisions'][0]['names']['en']
+                loc = loc + subdiv + ", "
+            if "country" in m.keys():
+                loc = loc + m["country"]["names"]["en"]
+            locs.append(loc)
 
     # removing duplicate names
     loc_set = set(locs)

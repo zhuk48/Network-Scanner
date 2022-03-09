@@ -128,3 +128,82 @@ youtube.com     Reno County Kansas United States                          1     
                                                                                                                                              200e                   n-f14.1e10           nv-sa        1378746                   TLSv1.1   
                                                                                                                                                                     0.net.                            1.43531197                TLSv1.2   
                                                                                                                                                                                                       68202305                  TLSv1.3   
+
+         webpage                 RTT_Range     
+===============================================
+users.cs.northwestern.edu    [0.235, 0.91]     
+it.eecs.northwestern.edu     [0.434, 0.554]    
+kellogg.northwestern.edu     [0.472, 0.536]    
+mccormick.northwestern.edu   [0.504, 0.721]    
+northwestern.edu             [0.912, 0.951]    
+facebook.com                 [1.266, 1.273]    
+youtube.com                  [1.342, 1.435]    
+instagram.com                [1.352, 1.507]    
+fandom.com                   [1.379, 1.958]    
+reddit.com                   [1.425, 1.891]    
+spacejam.com                 [1.457, 1.636]    
+pinterest.com                [1.553, 1.985]    
+tripadvisor.com              [1.566, 2.422]    
+yelp.com                     [1.604, 1.618]    
+kli.org                      [1.788, 4.247]    
+clocktab.com                 [2.054, 2.819]    
+illinois.edu                 [4.6, 4.656]      
+twitter.com                  [18.445, 21.4]    
+gradeinflation.com           [18.624, 18.998]  
+amazon.com                   [19.846, 24.245]  
+asee.org                     [20.168, 25.804]  
+uchicago.edu                 [20.538, 21.707]  
+imdb.com                     [22.043, 24.745]  
+walmart.com                  [24.707, 28.873]  
+en.wikipedia.org             [24.799, 25.034]  
+pmichaud.com                 [28.756, 29.381]  
+stevetarzia.com              [56.765, 57.193]  
+auditoryneuroscience.com     [201.377, 201.565]
+
+   Certificate Authority      Occurences
+========================================
+DigiCert Inc                  7         
+Digital Signature Trust Co.   4         
+GlobalSign                    4         
+Comodo CA Limited             4         
+The USERTRUST Network         3         
+Baltimore                     2         
+"VeriSign                     1         
+"Starfield Technologies       1         
+Unspecified                   1         
+GlobalSign nv-sa              1         
+
+                        Web Server                           Occurences
+=======================================================================
+None                                                         4         
+Varnish                                                      3         
+Apache                                                       3         
+Server                                                       2         
+cloudflare                                                   2         
+Apache/2.4.41 (Ubuntu)                                       1         
+nginx                                                        1         
+Apache/2.2.15 (Red Hat) mod_ssl/2.2.15 OpenSSL/1.0.1e-fips   1         
+proxygen-bolt                                                1         
+Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k      1         
+Microsoft-IIS/10.0                                           1         
+Apache/2.4.7 (Ubuntu)                                        1         
+BigIP                                                        1         
+snooserv                                                     1         
+Apache/2.4.51 () OpenSSL/1.0.2k-fips                         1         
+Apache/2.2.34 (Amazon)                                       1         
+envoy                                                        1         
+tsa_b                                                        1         
+ESF                                                          1         
+
+ characteristic     percentage
+==============================
+SSLv2               0         
+SSLv3               0         
+TLSv1.0             0.500     
+TLSv1.1             0.571     
+TLSv1.2             1         
+TLSv1.3             0.607     
+http_server         0.857     
+redirect_to_https   0.857     
+hsts                0.393     
+ipv6_addresses      0.214     

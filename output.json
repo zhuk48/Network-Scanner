@@ -1,24 +1,25 @@
 {
-    "northwestern.edu": {
-        "geo_locations": null,
+    "stevetarzia.com": {
+        "geo_locations": [
+            "Boardman, Oregon, United States"
+        ],
         "hsts": false,
-        "http_server": "BigIP",
+        "http_server": "Apache/2.2.34 (Amazon)",
         "insecure_http": true,
         "ipv4_addresses": [
-            "129.105.136.48"
+            "54.245.121.172"
         ],
         "ipv6_addresses": [],
         "rdns_names": [
-            "evcommon-caesar-vip.northwestern.edu.",
-            "cnair.northwestern.edu."
+            "grits.stevetarzia.com."
         ],
         "redirect_to_https": true,
-        "root_ca": "The USERTRUST Network",
+        "root_ca": "Digital Signature Trust Co.",
         "rtt_range": [
-            0.9530060924589634,
-            1.0313848033547401
+            55.98078799994255,
+            57.199184000637615
         ],
-        "scan_time": 1646602166.6217632,
+        "scan_time": 1646852541.4977462,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
