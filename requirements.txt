@@ -1,6 +1,17 @@
+argon2==0.1.10
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
 certifi==2021.10.8
+cffi==1.15.0
 charset-normalizer==2.0.12
+dataclasses==0.8
 dnspython==2.2.0
+geographiclib==1.52
+geopy==2.2.0
 idna==3.3
+maxminddb==2.2.0
+pycparser==2.21
 requests==2.27.1
+texttable==1.6.4
+typing-extensions==4.1.1
 urllib3==1.26.8

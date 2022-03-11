@@ -1,0 +1,319 @@
+{
+    "asee.org": {
+        "geo_locations": [
+            "Washington, Virginia, United States"
+        ],
+        "hsts": false,
+        "http_server": null,
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "20.49.104.48"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": null,
+        "redirect_to_https": true,
+        "root_ca": "DigiCert Inc",
+        "rtt_range": [
+            18.030856997938827,
+            20.960274996468797
+        ],
+        "scan_time": 1647018129.9884002,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "fandom.com": {
+        "geo_locations": [
+            "United States"
+        ],
+        "hsts": false,
+        "http_server": "Varnish",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "151.101.0.194",
+            "151.101.192.194",
+            "151.101.64.194",
+            "151.101.128.194"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": null,
+        "redirect_to_https": true,
+        "root_ca": "GlobalSign",
+        "rtt_range": [
+            1.455465011531487,
+            1.9437529845163226
+        ],
+        "scan_time": 1647018066.415137,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "illinois.edu": {
+        "geo_locations": [
+            "Urbana, Illinois, United States"
+        ],
+        "hsts": false,
+        "http_server": "Apache/2.2.15 (Red Hat) mod_ssl/2.2.15 OpenSSL/1.0.1e-fips",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "192.17.172.3"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": [
+            "tardis.techservices.illinois.edu."
+        ],
+        "redirect_to_https": true,
+        "root_ca": "Comodo CA Limited",
+        "rtt_range": [
+            4.680706013459712,
+            4.749735991936177
+        ],
+        "scan_time": 1647018119.506338,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "kli.org": {
+        "geo_locations": [
+            "",
+            "United States"
+        ],
+        "hsts": false,
+        "http_server": "cloudflare",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "188.114.96.2",
+            "172.64.80.1",
+            "104.21.4.169",
+            "172.67.132.72",
+            "188.114.97.2"
+        ],
+        "ipv6_addresses": [
+            "2606:4700:3035::ac43:8448",
+            "2a06:98c1:3120::2",
+            "2606:4700:3033::6815:4a9",
+            "2a06:98c1:3121::2",
+            "2606:4700:130:436c:6f75:6466:6c61:7265"
+        ],
+        "rdns_names": null,
+        "redirect_to_https": true,
+        "root_ca": "Baltimore",
+        "rtt_range": [
+            1.9253890204709023,
+            2.9298920126166195
+        ],
+        "scan_time": 1647018156.475266,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "mccormick.northwestern.edu": {
+        "geo_locations": [
+            "Chicago, Illinois, United States"
+        ],
+        "hsts": false,
+        "http_server": "Apache/2.4.7 (Ubuntu)",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "129.105.1.129"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": [
+            "mccormick.northwestern.edu."
+        ],
+        "redirect_to_https": true,
+        "root_ca": "Comodo CA Limited",
+        "rtt_range": [
+            0.4785129858646542,
+            0.6662619998678565
+        ],
+        "scan_time": 1647018111.152328,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "northwestern.edu": {
+        "geo_locations": [
+            "United States"
+        ],
+        "hsts": false,
+        "http_server": "BigIP",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "129.105.136.48"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": [
+            "cnair.northwestern.edu.",
+            "evcommon-caesar-vip.northwestern.edu."
+        ],
+        "redirect_to_https": true,
+        "root_ca": "The USERTRUST Network",
+        "rtt_range": [
+            0.9112819971051067,
+            1.2668469862546772
+        ],
+        "scan_time": 1647018098.376628,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "pinterest.com": {
+        "geo_locations": [
+            "United States"
+        ],
+        "hsts": true,
+        "http_server": null,
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "151.101.128.84",
+            "151.101.64.84",
+            "151.101.0.84",
+            "151.101.192.84"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": null,
+        "redirect_to_https": true,
+        "root_ca": "DigiCert Inc",
+        "rtt_range": [
+            1.525813975604251,
+            1.8472649971954525
+        ],
+        "scan_time": 1647018083.0062492,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "spacejam.com": {
+        "geo_locations": [
+            "United States"
+        ],
+        "hsts": true,
+        "http_server": "Apache/2.4.51 () OpenSSL/1.0.2k-fips",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "75.2.104.223",
+            "99.83.180.228"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": [
+            "a259cf76d74e1f65f.awsglobalaccelerator.com.",
+            "a259cf76d74e1f65f.awsglobalaccelerator.com."
+        ],
+        "redirect_to_https": true,
+        "root_ca": "GlobalSign",
+        "rtt_range": [
+            1.4944130089133978,
+            1.5799530083313584
+        ],
+        "scan_time": 1647018144.0122223,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "twitter.com": {
+        "geo_locations": [
+            "United States"
+        ],
+        "hsts": true,
+        "http_server": "tsa_b",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "104.244.42.1",
+            "104.244.42.65",
+            "104.244.42.193",
+            "104.244.42.129"
+        ],
+        "ipv6_addresses": [],
+        "rdns_names": null,
+        "redirect_to_https": true,
+        "root_ca": "DigiCert Inc",
+        "rtt_range": [
+            18.178194004576653,
+            27.131011011078954
+        ],
+        "scan_time": 1647018039.7249405,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    },
+    "youtube.com": {
+        "geo_locations": [
+            "United States"
+        ],
+        "hsts": true,
+        "http_server": "ESF",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "142.250.190.110",
+            "142.250.186.110",
+            "142.250.191.174",
+            "172.217.2.46",
+            "142.251.32.78",
+            "142.250.64.78",
+            "142.251.33.46"
+        ],
+        "ipv6_addresses": [
+            "2607:f8b0:4009:80b::200e",
+            "2607:f8b0:4023:1009::5b",
+            "2607:f8b0:400b:807::200e",
+            "2607:f8b0:4023:1009::5d",
+            "2607:f8b0:4023:1009::be",
+            "2607:f8b0:4009:81a::200e",
+            "2607:f8b0:4023:1009::88",
+            "2a00:1450:4001:803::200e",
+            "2607:f8b0:4006:806::200e",
+            "2607:f8b0:4009:802::200e"
+        ],
+        "rdns_names": [
+            "ord37s35-in-f14.1e100.net.",
+            "fra24s06-in-f14.1e100.net.",
+            "ord38s30-in-f14.1e100.net.",
+            "ord37s52-in-f14.1e100.net.",
+            "atl14s78-in-f14.1e100.net.",
+            "yyz12s07-in-f14.1e100.net.",
+            "lga34s30-in-f14.1e100.net.",
+            "dfw28s31-in-f14.1e100.net."
+        ],
+        "redirect_to_https": true,
+        "root_ca": "GlobalSign nv-sa",
+        "rtt_range": [
+            1.4532879868056625,
+            96.6377430013381
+        ],
+        "scan_time": 1647018015.8390439,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
+    }
+}

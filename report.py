@@ -129,7 +129,7 @@ p3 = get_information_sorted('root_ca',['Certificate Authority', 'Occurences'])
 p4 = get_information_sorted('http_server', ['Web Server', 'Occurences'])
 p5 = get_percentages()
 
-with open('output.txt', 'w', encoding="utf-8") as f:
+with open(user_out, 'w', encoding="utf-8") as f:
   f.write(p1 + '\n\n')
   f.write(p2 + '\n\n')
   f.write(p3 + '\n\n')

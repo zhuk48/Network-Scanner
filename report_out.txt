@@ -1,0 +1,126 @@
+   webpage                           geo_locations                           hsts        http_server     insecure_h      ipv4_addresses         ipv6_addresses      rdns_names   redir    root_ca     rtt_range    scan_time    tls_versio
+                                                                                                            ttp                                                                  ect_t                                              ns    
+                                                                                                                                                                                 o_htt                                                    
+                                                                                                                                                                                  ps                                                      
+==========================================================================================================================================================================================================================================
+asee.org        Washington Virginia United States                         0            None              1            20.49.104.48                                  None         1       DigiCert     18.0308569   1.647e+09    TLSv1.0   
+                                                                                                                                                                                         Inc          97938827                  TLSv1.1   
+                                                                                                                                                                                                      20.9602749                TLSv1.2   
+                                                                                                                                                                                                      96468797                  TLSv1.3   
+fandom.com                                                                0            Varnish           1            151.101.0.194                                 None         1       GlobalSign   1.45546501   1.647e+09    TLSv1.0   
+                                                                                                                      151.101.192.194                                                                 1531487                   TLSv1.1   
+                                                                                                                      151.101.64.194                                                                  1.94375298                TLSv1.2   
+                                                                                                                      151.101.128.194                                                                 45163226                  TLSv1.3   
+illinois.edu    Urbana Illinois United States                             0            Apache/2.2.15     1            192.17.172.3                                  tardis.tec   1       Comodo CA    4.68070601   1.647e+09    TLSv1.0   
+                                                                                       (Red Hat)                                                                    hservices.           Limited      3459712                   TLSv1.1   
+                                                                                       mod_ssl/2.2.15                                                               illinois.e                        4.74973599                TLSv1.2   
+                                                                                       OpenSSL/1.0.1e-                                                              du.                               1936177                   TLSv1.3   
+                                                                                       fips                                                                                                                                               
+kli.org                                                                   0            cloudflare        1            188.114.96.2           2606:4700:3035::ac43   None         1       Baltimore    1.92538902   1.647e+09    TLSv1.0   
+                                                                                                                      172.64.80.1            :8448                                                    04709023                  TLSv1.1   
+                                                                                                                      104.21.4.169           2a06:98c1:3120::2                                        2.92989201                TLSv1.2   
+                                                                                                                      172.67.132.72          2606:4700:3033::6815                                     26166195                  TLSv1.3   
+                                                                                                                      188.114.97.2           :4a9                                                                                         
+                                                                                                                                             2a06:98c1:3121::2                                                                            
+                                                                                                                                             2606:4700:130:436c:6                                                                         
+                                                                                                                                             f75:6466:6c61:7265                                                                           
+mccormick.nor   Chicago Illinois United States                            0            Apache/2.4.7      1            129.105.1.129                                 mccormick.   1       Comodo CA    0.47851298   1.647e+09    TLSv1.0   
+thwestern.edu                                                                          (Ubuntu)                                                                     northweste           Limited      58646542                  TLSv1.1   
+                                                                                                                                                                    rn.edu.                           0.66626199                TLSv1.2   
+                                                                                                                                                                                                      98678565                  TLSv1.3   
+northwestern.                                                             0            BigIP             1            129.105.136.48                                cnair.nort   1       The          0.91128199   1.647e+09    TLSv1.0   
+edu                                                                                                                                                                 hwestern.e           USERTRUST    71051067                  TLSv1.1   
+                                                                                                                                                                    du.                  Network      1.26684698                TLSv1.2   
+                                                                                                                                                                    evcommon-                         62546772                  TLSv1.3   
+                                                                                                                                                                    caesar-vip                                                            
+                                                                                                                                                                    .northwest                                                            
+                                                                                                                                                                    ern.edu.                                                              
+pinterest.com                                                             1            None              1            151.101.128.84                                None         1       DigiCert     1.52581397   1.647e+09    TLSv1.0   
+                                                                                                                      151.101.64.84                                                      Inc          5604251                   TLSv1.1   
+                                                                                                                      151.101.0.84                                                                    1.84726499                TLSv1.2   
+                                                                                                                      151.101.192.84                                                                  71954525                  TLSv1.3   
+spacejam.com                                                              1            Apache/2.4.51     1            75.2.104.223                                  a259cf76d7   1       GlobalSign   1.49441300   1.647e+09    TLSv1.0   
+                                                                                       () OpenSSL/1.0.                99.83.180.228                                 4e1f65f.aw                        89133978                  TLSv1.1   
+                                                                                       2k-fips                                                                      sglobalacc                        1.57995300                TLSv1.2   
+                                                                                                                                                                    elerator.c                        83313584                  TLSv1.3   
+                                                                                                                                                                    om.                                                                   
+                                                                                                                                                                    a259cf76d7                                                            
+                                                                                                                                                                    4e1f65f.aw                                                            
+                                                                                                                                                                    sglobalacc                                                            
+                                                                                                                                                                    elerator.c                                                            
+                                                                                                                                                                    om.                                                                   
+twitter.com                                                               1            tsa_b             1            104.244.42.1                                  None         1       DigiCert     18.1781940   1.647e+09    TLSv1.0   
+                                                                                                                      104.244.42.65                                                      Inc          04576653                  TLSv1.1   
+                                                                                                                      104.244.42.193                                                                  27.1310110                TLSv1.2   
+                                                                                                                      104.244.42.129                                                                  11078954                  TLSv1.3   
+youtube.com                                                               1            ESF               1            142.250.190.110        2607:f8b0:4009:80b::   ord37s35-i   1       GlobalSign   1.45328798   1.647e+09    TLSv1.0   
+                                                                                                                      142.250.186.110        200e                   n-f14.1e10           nv-sa        68056625                  TLSv1.1   
+                                                                                                                      142.250.191.174        2607:f8b0:4023:1009:   0.net.                            96.6377430                TLSv1.2   
+                                                                                                                      172.217.2.46           :5b                    fra24s06-i                        013381                    TLSv1.3   
+                                                                                                                      142.251.32.78          2607:f8b0:400b:807::   n-f14.1e10                                                            
+                                                                                                                      142.250.64.78          200e                   0.net.                                                                
+                                                                                                                      142.251.33.46          2607:f8b0:4023:1009:   ord38s30-i                                                            
+                                                                                                                                             :5d                    n-f14.1e10                                                            
+                                                                                                                                             2607:f8b0:4023:1009:   0.net.                                                                
+                                                                                                                                             :be                    ord37s52-i                                                            
+                                                                                                                                             2607:f8b0:4009:81a::   n-f14.1e10                                                            
+                                                                                                                                             200e                   0.net.                                                                
+                                                                                                                                             2607:f8b0:4023:1009:   atl14s78-i                                                            
+                                                                                                                                             :88                    n-f14.1e10                                                            
+                                                                                                                                             2a00:1450:4001:803::   0.net.                                                                
+                                                                                                                                             200e                   yyz12s07-i                                                            
+                                                                                                                                             2607:f8b0:4006:806::   n-f14.1e10                                                            
+                                                                                                                                             200e                   0.net.                                                                
+                                                                                                                                             2607:f8b0:4009:802::   lga34s30-i                                                            
+                                                                                                                                             200e                   n-f14.1e10                                                            
+                                                                                                                                                                    0.net.                                                                
+                                                                                                                                                                    dfw28s31-i                                                            
+                                                                                                                                                                    n-f14.1e10                                                            
+                                                                                                                                                                    0.net.                                                                
+
+         webpage                RTT_Range    
+=============================================
+mccormick.northwestern.edu   [0.479, 0.666]  
+northwestern.edu             [0.911, 1.267]  
+youtube.com                  [1.453, 96.638] 
+fandom.com                   [1.455, 1.944]  
+spacejam.com                 [1.494, 1.58]   
+pinterest.com                [1.526, 1.847]  
+kli.org                      [1.925, 2.93]   
+illinois.edu                 [4.681, 4.75]   
+asee.org                     [18.031, 20.96] 
+twitter.com                  [18.178, 27.131]
+
+Certificate Authority   Occurences
+==================================
+DigiCert Inc            3         
+GlobalSign              2         
+Comodo CA Limited       2         
+Baltimore               1         
+The USERTRUST Network   1         
+GlobalSign nv-sa        1         
+
+                        Web Server                           Occurences
+=======================================================================
+None                                                         2         
+Varnish                                                      1         
+Apache/2.2.15 (Red Hat) mod_ssl/2.2.15 OpenSSL/1.0.1e-fips   1         
+cloudflare                                                   1         
+Apache/2.4.7 (Ubuntu)                                        1         
+BigIP                                                        1         
+Apache/2.4.51 () OpenSSL/1.0.2k-fips                         1         
+tsa_b                                                        1         
+ESF                                                          1         
+
+ characteristic     percentage
+==============================
+SSLv2               0         
+SSLv3               0         
+TLSv1.0             1         
+TLSv1.1             1         
+TLSv1.2             1         
+TLSv1.3             1         
+http_server         0.800     
+redirect_to_https   1         
+hsts                0.400     
+ipv6_addresses      0.200     
